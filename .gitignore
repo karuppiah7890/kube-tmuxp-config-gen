@@ -1,1 +1,8 @@
+# dev binary
 kube-tmuxp-config-gen
+
+# vs code config
+.vscode/
+
+# Sample config
+config.sample.yaml
