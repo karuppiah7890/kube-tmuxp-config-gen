@@ -1,0 +1,7 @@
+environment:
+  KUBECONFIG: {{ .KubeConfig }}
+
+session_name: {{ .SessionName }}
+windows:
+  - panes: []
+    window_name: default

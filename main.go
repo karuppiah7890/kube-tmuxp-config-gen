@@ -16,7 +16,7 @@ func main() {
 		Usage: "Generate configurations for tmuxp to work with multiple GKE kubernetes clusters",
 		Action: func(c *cli.Context) error {
 			configFile := c.Args().First()
-			kubetmuxp.CreateKubeConfig(configFile)
+			kubetmuxp.CreateKubeTmuxpConfig(configFile)
 			return nil
 		},
 		Version: fmt.Sprintf("0.1.0-%s", version),

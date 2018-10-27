@@ -7,6 +7,7 @@ import (
 
 	kubeconfig "github.com/karuppiah7890/kube-tmuxp-config-gen/kubeconfig"
 	kubecontext "github.com/karuppiah7890/kube-tmuxp-config-gen/kubecontext"
+	tmuxpconfig "github.com/karuppiah7890/kube-tmuxp-config-gen/tmuxpconfig"
 	utils "github.com/karuppiah7890/kube-tmuxp-config-gen/utils"
 )
 
@@ -16,8 +17,8 @@ func check(e error) {
 	}
 }
 
-// CreateKubeConfig creates Kubernetes Contexts and Generates Tmuxp configurations
-func CreateKubeConfig(configFile string) {
+// CreateKubeTmuxpConfig creates Kubernetes Contexts and Generates Tmuxp configurations
+func CreateKubeTmuxpConfig(configFile string) {
 	kubeConfigsDir := path.Join(utils.GetHomeDir(), ".kube", "configs")
 	tmuxpConfigDir := path.Join(utils.GetHomeDir(), ".tmuxp")
 
@@ -42,6 +43,7 @@ func CreateKubeConfig(configFile string) {
 			kubecontext.DeleteContext(context, kubeConfigsDir)
 			kubecontext.AddContext(context, cluster, project, kubeConfigsDir)
 			kubecontext.RenameContext(context, cluster, project, kubeConfigsDir)
+			tmuxpconfig.CreateTmuxpConfig(context, context)
 		}
 	}
 }
