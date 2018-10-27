@@ -17,7 +17,7 @@ func check(e error) {
 }
 
 // CreateTmuxpConfig creates tmuxp config
-func CreateTmuxpConfig(kubeContext string, tmuxSessionName string) {
+func CreateTmuxpConfig(kubeContext string, tmuxSessionName string, extraEnvs map[string]string) {
 	fmt.Println("Creating tmuxp configuration")
 	templateByteData, err := templates.Asset("templates/tmuxp-config.yaml")
 	check(err)
@@ -28,6 +28,7 @@ func CreateTmuxpConfig(kubeContext string, tmuxSessionName string) {
 	kubeConfigFile := path.Join(utils.GetHomeDir(), ".kube", "configs", kubeContext)
 	templateValues["KubeConfig"] = kubeConfigFile
 	templateValues["SessionName"] = tmuxSessionName
+	templateValues["ExtraEnvs"] = extraEnvs
 
 	tmuxpConfigFilePath := path.Join(utils.GetHomeDir(), ".tmuxp", fmt.Sprintf("%v.yaml", kubeContext))
 	tmuxpConfigFile, err := os.Create(tmuxpConfigFilePath)

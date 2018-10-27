@@ -8,10 +8,11 @@ import (
 
 // Cluster represents a GKE Kubernetes Cluster
 type Cluster struct {
-	Name    string `json:"name"`
-	Context string `json:"context"`
-	Region  string `json:"region"`
-	Zone    string `json:"zone"`
+	Name      string            `json:"name"`
+	Context   string            `json:"context"`
+	Region    string            `json:"region"`
+	Zone      string            `json:"zone"`
+	ExtraEnvs map[string]string `json:"extra_envs"`
 }
 
 // ProjectConfig represents a GCP project config

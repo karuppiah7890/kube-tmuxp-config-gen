@@ -37,13 +37,14 @@ func CreateKubeTmuxpConfig(configFile string) {
 		for _, cluster := range clusters {
 			name := cluster.Name
 			context := cluster.Context
+			extraEnvs := cluster.ExtraEnvs
 
 			fmt.Printf(">>> Running for cluster %v\n\n", name)
 
 			kubecontext.DeleteContext(context, kubeConfigsDir)
 			kubecontext.AddContext(context, cluster, project, kubeConfigsDir)
 			kubecontext.RenameContext(context, cluster, project, kubeConfigsDir)
-			tmuxpconfig.CreateTmuxpConfig(context, context)
+			tmuxpconfig.CreateTmuxpConfig(context, context, extraEnvs)
 		}
 	}
 }
