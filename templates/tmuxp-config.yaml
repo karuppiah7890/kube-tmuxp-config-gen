@@ -1,5 +1,8 @@
 environment:
-  KUBECONFIG: {{ .KubeConfig }}
+  KUBECONFIG: {{ .KubeConfig -}}
+{{- range $key, $value := .ExtraEnvs }}
+  {{ $key }}: {{ $value -}}
+{{ end }}
 
 session_name: {{ .SessionName }}
 windows:
