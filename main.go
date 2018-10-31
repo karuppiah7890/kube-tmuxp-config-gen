@@ -15,6 +15,13 @@ func main() {
 		Name:  "kube-tmuxp-config-gen",
 		Usage: "Generate configurations for tmuxp to work with multiple GKE kubernetes clusters",
 		Action: func(c *cli.Context) error {
+
+			numberOfArguments := c.NArg()
+
+			if numberOfArguments != 1 {
+				return cli.Exit("Please pass exactly one configuration file", 1)
+			}
+
 			configFile := c.Args().First()
 			kubetmuxp.CreateKubeTmuxpConfig(configFile)
 			return nil
