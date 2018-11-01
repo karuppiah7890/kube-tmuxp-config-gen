@@ -1,4 +1,5 @@
 This is a list of my findings and learnings while building a Golang project, also a port of an existing project
 
 * [urfave/cli](https://github.com/urfave/cli) - Helper for creating Golang CLI apps
-* [ghodss/yaml](https://github.com/ghodss/yaml) - Golang Library for serializing and deserializing yaml. [Libraries.io Page](https://libraries.io/go/github.com%2Fghodss%2Fyaml) A lot of packages use this library. Even Kubernetes uses this package! 
+* [ghodss/yaml](https://github.com/ghodss/yaml) - Golang Library for serializing and deserializing yaml. [Libraries.io Page](https://libraries.io/go/github.com%2Fghodss%2Fyaml) A lot of packages use this library. Even Kubernetes uses this package!
+* [go-bindata/go-bindata](https://github.com/go-bindata/go-bindata) - Convert any file into a manageable Go source code. This helped me to embed a template yaml in the static binary 😄 The template yaml wasn't gonna change and was a static input for the tool, so I had to just embed it instead of taking it as input from the user. This yaml is nothing but the the tmuxp config yaml template which when put together with some values based on user input becomes a tmuxp config for the user.
