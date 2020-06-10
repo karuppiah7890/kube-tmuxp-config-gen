@@ -1,3 +1,8 @@
+[kube-tmuxp](https://github.com/thecasualcoder/kube-tmuxp/) has been migrated to Golang. I would recommend using that, as it's well 
+maintained and is robust with tests!
+
+This project is currently not maintained.
+
 # kube-tmuxp-config-gen
 
 This project has been inspired from [kube-tmuxp](https://github.com/arunvelsriram/kube-tmuxp/) and is a Golang port of it
