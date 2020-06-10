@@ -1,7 +1,7 @@
 [kube-tmuxp](https://github.com/thecasualcoder/kube-tmuxp/) has been migrated to Golang. I would recommend using that, as it's well 
 maintained and is robust with tests!
 
-This project is currently not maintained.
+This project is currently **NOT** maintained.
 
 # kube-tmuxp-config-gen
 
